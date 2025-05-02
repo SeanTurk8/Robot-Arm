@@ -1,2 +1,50 @@
-# Robot-Arm
-Arduino code for a robot arm that plays checkers. It moves pieces using stepper motors, shows messages on an LCD, and listens to a Raspberry Pi over I2C. Handles homing, grabbing pieces, and displaying game updates.
+This robot arm was built as part of a senior capstone project at UMass Dartmouth. It’s designed to physically play a full game of checkers against a human on a real 8x8 board. The arm uses three stepper motors to control its base, shoulder, and elbow joints, along with a DC motor-powered claw to grab and place checkers pieces. A Raspberry Pi runs the game logic and sends move commands to an Arduino Mega using I2C. Each board position has a set of pre-recorded angles to ensure accurate movement. The system uses limit switches for consistent homing and has an LCD screen to display turn updates and game status. Players manually remove jumped pieces and confirm it using a physical "Enter" button. The robot supports full checkers gameplay, including win/loss detection and surrender options
+
+Features
+- Full physical checkers game on an 8x8 board
+- Robotic arm with 3 DOF (base, shoulder, elbow) + 3-prong DC gripper
+- Piece detection using OpenCV and Raspberry Pi camera
+- Minimax AI with alpha-beta pruning for computer moves
+- LCD screen shows turn prompts and game outcomes
+- Buttons for Start, Surrender, and Enter
+- Manual piece removal with button confirmation
+- I2C communication between Pi and Arduino Mega
+
+Hardware
+- Arduino Mega 2560
+- Raspberry Pi 4 (AI + OpenCV)
+- NEMA 17 stepper motors x3
+- DC motor for claw gripper
+- A4988 stepper drivers
+- Limit switches (base, shoulder, elbow)
+- I2C 16x2 LCD (LiquidCrystal_SoftI2C)
+
+Software
+- Arduino firmware written in C++
+- Uses:
+    AccelStepper for motor control
+    LiquidCrystal_SoftI2C for LCD
+    Wire and SoftwareWire for I2C
+- Python code on Raspberry Pi:
+    Detects moves with OpenCV
+    Runs game logic and sends moves to Arduino via I2C
+    Handles mandatory jump rule and multi-jump sequences
+  
+Operation Flow
+- On boot, LCD shows "Press START to play"
+- Game asks if jumping is mandatory (1 press = Yes, 2 presses = No)
+- Player moves are detected via Pi camera
+- Computer move calculated using minimax, executed via robotic arm
+- Jumped pieces are manually removed with player confirmation
+- Game ends with result shown on LCD
+
+Setup
+- Define joint angles per board square in angleMap[8][8]
+- Upload Arduino firmware
+- Connect Pi and Arduino via I2C (address 0x08)
+- Run the Pi's main Python script to start the game
+
+Notes
+- Homing is done using limit switches
+- Each square's angle was manually tuned
+- Piece confirmation is required to reduce camera error impact
