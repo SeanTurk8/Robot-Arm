@@ -22,13 +22,13 @@ Hardware
 Software
 - Arduino firmware written in C++
 - Uses:
-    AccelStepper for motor control
-    LiquidCrystal_SoftI2C for LCD
-    Wire and SoftwareWire for I2C
+    - AccelStepper for motor control
+    - LiquidCrystal_SoftI2C for LCD
+    - Wire and SoftwareWire for I2C
 - Python code on Raspberry Pi:
-    Detects moves with OpenCV
-    Runs game logic and sends moves to Arduino via I2C
-    Handles mandatory jump rule and multi-jump sequences
+    - Detects moves with OpenCV
+    - Runs game logic and sends moves to Arduino via I2C
+    - Handles mandatory jump rule and multi-jump sequences
   
 Operation Flow
 - On boot, LCD shows "Press START to play"
