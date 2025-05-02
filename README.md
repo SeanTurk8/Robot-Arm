@@ -1,3 +1,5 @@
+https://capstone2025.sites.umassd.edu/2025/04/01/checker-robot-arm/
+
 This robot arm was built as part of a senior capstone project at UMass Dartmouth. It’s designed to physically play a full game of checkers against a human on a real 8x8 board. The robot arm uses stepper motors to control movement across three joints—base, shoulder, and elbow—plus a DC motor claw for grabbing pieces. A Raspberry Pi runs the game logic and sends move commands to an Arduino Mega using I2C. Each board position has a set of pre-recorded angles to ensure accurate movement. The system uses limit switches for consistent homing and has an LCD screen to display turn updates and game status. Players remove jumped pieces by hand and press the ‘Enter’ button to confirm. The robot supports full checkers gameplay, including win/loss detection and surrender options.
 
 Features
