@@ -14,6 +14,7 @@ Hardware
 - Raspberry Pi 4 (AI)
 - NEMA 17 stepper motors x3
 - DC motor for claw gripper
+- DM556S Stepper Drivers
 - Limit switches (base, shoulder, elbow)
 - I2C 16x2 LCD (LiquidCrystal_SoftI2C)
 
