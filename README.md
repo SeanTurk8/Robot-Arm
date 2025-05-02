@@ -2,9 +2,8 @@ This robot arm was built as part of a senior capstone project at UMass Dartmouth
 
 Features
 - Full physical checkers game on an 8x8 board
-- Robotic arm with 3 DOF (base, shoulder, elbow) + 3-prong DC gripper
-- Piece detection using OpenCV and Raspberry Pi camera
-- Minimax AI with alpha-beta pruning for computer moves
+- Robotic arm with a base, shoulder, elbow + 3-prong DC gripper
+- Piece detection using a Raspberry Pi camera
 - LCD screen shows turn prompts and game outcomes
 - Buttons for Start, Surrender, and Enter
 - Manual piece removal with button confirmation
@@ -12,10 +11,9 @@ Features
 
 Hardware
 - Arduino Mega 2560
-- Raspberry Pi 4 (AI + OpenCV)
+- Raspberry Pi 4 (AI)
 - NEMA 17 stepper motors x3
 - DC motor for claw gripper
-- A4988 stepper drivers
 - Limit switches (base, shoulder, elbow)
 - I2C 16x2 LCD (LiquidCrystal_SoftI2C)
 
@@ -26,15 +24,14 @@ Software
     - LiquidCrystal_SoftI2C for LCD
     - Wire and SoftwareWire for I2C
 - Python code on Raspberry Pi:
-    - Detects moves with OpenCV
+    - Detects moves with camera
     - Runs game logic and sends moves to Arduino via I2C
-    - Handles mandatory jump rule and multi-jump sequences
+    - Handles mandatory jump rule 
   
 Operation Flow
 - On boot, LCD shows "Press START to play"
 - Game asks if jumping is mandatory (1 press = Yes, 2 presses = No)
 - Player moves are detected via Pi camera
-- Computer move calculated using minimax, executed via robotic arm
 - Jumped pieces are manually removed with player confirmation
 - Game ends with result shown on LCD
 
